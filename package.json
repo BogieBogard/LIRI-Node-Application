@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BogieBogard/LIRI-Node-Application/issues"
   },
-  "homepage": "https://github.com/BogieBogard/LIRI-Node-Application#readme"
+  "homepage": "https://github.com/BogieBogard/LIRI-Node-Application#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0"
+  }
 }
