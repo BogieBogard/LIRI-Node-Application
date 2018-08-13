@@ -5,6 +5,7 @@
 //   console.log('body:', body); // Print the HTML for the Google homepage.
 // });
 
+// Setting up Twitter for node.js
 var Twitter = require('twitter');
  
 var client = new Twitter({

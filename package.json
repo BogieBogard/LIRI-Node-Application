@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/BogieBogard/LIRI-Node-Application#readme",
   "dependencies": {
-    "dotenv": "^6.0.0"
+    "dotenv": "^6.0.0",
+    "request": "^2.88.0"
   }
 }
