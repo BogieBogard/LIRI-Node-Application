@@ -74,21 +74,20 @@ function movieFunction() {
   if (process.argv[3] === undefined) {
     // Grab or assemble the movie name and store it in a variable called "movieName"
     movieName = "Mr. Nobody";
-    // Then run a request to the OMDB API with the movie specified
-    queryUrl =
-      "http://www.omdbapi.com/?t=" +
-      movieName +
-      "&y=&plot=short&apikey=40e9cece";
-    // This line is just to help us debug against the actual URL.
-    console.log(queryUrl);
-    // Then create a request to the queryUrl
-    request(queryUrl, function(error, response, body) {
-      //console.log the response to see what the JSON looks like
-      // console.log("This is response:", response);
-      // If the request is successful
-      if (!error && response.statusCode === 200) {
-        console.log(response.body);
-      }
-    });
   }
-};
+  // Then run a request to the OMDB API with the movie specified
+  movieName = (process.argv[3]);
+  queryUrl =
+    "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
+  // This line is just to help us debug against the actual URL.
+  console.log(queryUrl);
+  // Then create a request to the queryUrl
+  request(queryUrl, function(error, response, body) {
+    //console.log the response to see what the JSON looks like
+    // console.log("This is response:", response);
+    // If the request is successful
+    if (!error && response.statusCode === 200) {
+      console.log(response.body);
+    }
+  });
+}
