@@ -20,39 +20,49 @@ const client = new Twitter(myKeys.twitter);
 // 3. `movie-this`
 // 4. `do-what-it-says`
 switch (process.argv[2]) {
-    case "my-tweets":
+  case "my-tweets":
     tweetsFunction();
     break;
 
-    case "spotify-this-song":
+  case "spotify-this-song":
     spotifyFunction();
     break;
 
-    case "movie-this":
+  case "movie-this":
     movieFunction();
     break;
 
-    case "do-what-it-says":
+  case "do-what-it-says":
     logTxtFunction();
     break;
-};
+}
 
 // 1. tweetsFunction
 function tweetsFunction() {
-    console.log("Checking to see if tweets function is working");
-    var params = {screen_name: 'LiriUtbc'};
-    client.get('statuses/user_timeline', params, function(error, tweets, response) {
-      if (!error) {
-        console.log(tweets);
-      } else {
-        console.log("Fuck! Something went wrong :(");
-        console.log(error);
-      }
-    });
-};
+  console.log("Checking to see if tweets function is working");
+  var params = { screen_name: "LiriUtbc" };
+  client.get("statuses/user_timeline", params, function(
+    error,
+    tweets,
+    response
+  ) {
+    if (!error) {
+      console.log(tweets);
+    } else {
+      console.log("Something went wrong :(");
+      console.log(error);
+    }
+  });
+}
 
 //2. spotifyFunction
 function spotifyFunction() {
-    
+  spotify
+    .request("https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx")
+    .then(function(data) {
+      console.log(data);
+    })
+    .catch(function(err) {
+      console.error("Error occurred: " + err);
+    });
 }
-
