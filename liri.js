@@ -72,8 +72,8 @@ function movieFunction() {
   let movieName = "";
   let queryUrl = "";
   if (process.argv[3] === undefined) {
-    // Grab or assemble the movie name and store it in a variable called "movieName"
-    movieName = "Mr. Nobody";
+    // If the user doesn't specify a film then the program will display "The Shining" movie information
+    movieName = "The Shining";
   }
   // Then run a request to the OMDB API with the movie specified
   movieName = process.argv[3];
