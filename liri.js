@@ -76,7 +76,7 @@ function movieFunction() {
     movieName = "Mr. Nobody";
   }
   // Then run a request to the OMDB API with the movie specified
-  movieName = (process.argv[3]);
+  movieName = process.argv[3];
   queryUrl =
     "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=40e9cece";
   // This line is just to help us debug against the actual URL.
@@ -88,6 +88,22 @@ function movieFunction() {
     // If the request is successful
     if (!error && response.statusCode === 200) {
       console.log(response.body);
+    } else {
+      console.log("Something went wrong :( " + error);
     }
   });
 }
+
+//4. logTxtFunction
+function logTxtFunction() {
+  fs.readFile("./assets/random.txt", "utf8", function(error, data) {
+    if (!error) {
+      console.log("Raw " + data);
+      let dataArray = data.split(",");
+      console.log(dataArray[0]);
+      console.log("Formatted " + dataArray);
+    } else {
+      console.log("Something went wrong :( " + error);
+    };
+  });
+};
