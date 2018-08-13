@@ -15,16 +15,44 @@ const spotify = new Spotify(myKeys.spotify);
 const client = new Twitter(myKeys.twitter);
 
 //Using a swtich/case for the program's four commands
-// * `my-tweets`
+// 1. `my-tweets`
+// 2. `spotify-this-song`
+// 3. `movie-this`
+// 4. `do-what-it-says`
+switch (process.argv[2]) {
+    case "my-tweets":
+    tweetsFunction();
+    break;
 
-// * `spotify-this-song`
+    case "spotify-this-song":
+    spotifyFunction();
+    break;
 
-// * `movie-this`
+    case "movie-this":
+    movieFunction();
+    break;
 
-// * `do-what-it-says`
+    case "do-what-it-says":
+    logTxtFunction();
+    break;
+};
 
-console.log(myKeys.test);
-console.log("test2");
-console.log(myKeys.spotify);
+// 1. tweetsFunction
+function tweetsFunction() {
+    console.log("Checking to see if tweets function is working");
+    var params = {screen_name: 'LiriUtbc'};
+    client.get('statuses/user_timeline', params, function(error, tweets, response) {
+      if (!error) {
+        console.log(tweets);
+      } else {
+        console.log("Fuck! Something went wrong :(");
+        console.log(error);
+      }
+    });
+};
 
+//2. spotifyFunction
+function spotifyFunction() {
+    
+}
 
